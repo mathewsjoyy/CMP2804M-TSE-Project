@@ -1,8 +1,11 @@
 # CMP2804M-TSE-Project (GROUP 10)
-Repository to hold the data analytics project undertaken in the Team Software Engineering module at the University of Lincoln
+
+Repository to hold the data analytics project undertaken in the Team-Software Engineering module at the University of Lincoln
 
 ## Contributors
+
 The people who contributed to this project are:
+
 - Mathews Joy
 - Alfie Newton
 - Kyle Merrall
@@ -11,5 +14,11 @@ The people who contributed to this project are:
 - Max Bravetti
 - George Finch
 
+# External Resources Used
+
+- Jira for project management
+- Github for version control
+
 ## Copyright Information
+
 Copyright © 2022 University Of Lincoln. All Rights Reserved.
