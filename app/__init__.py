@@ -3,7 +3,7 @@ from app.config import Config
 
 app = Flask(__name__)
     
-def create_app(config_class = Config):
+def create_app(config_class=Config):
     # Apply all configuration in the config.py file to the app
     app.config.from_object(config_class)
     
