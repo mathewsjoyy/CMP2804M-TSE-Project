@@ -1,0 +1,20 @@
+<!-- Layout file, that all other html files can extend from -->
+<!-- Contains the bare basics, such as header, footer etc. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='index.js') }}"></script>
+</head>
+<body>
+
+    <!-- Other html docs that inherit this doc will insert there content in here-->
+    {% block content %}{% endblock %}
+
+</body>
+</html>
