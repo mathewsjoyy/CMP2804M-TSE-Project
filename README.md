@@ -14,6 +14,9 @@ The people who contributed to this project are:
 - Max Bravetti
 - George Finch
 
+# Other repositories used for this project
+[Addtional Scripts Repo](https://github.com/mathewsjoyy/TSE-Group10-Addtional-Scripts)
+
 # External Resources Used
 
 - Jira for project management
