@@ -1,0 +1,33 @@
+/* FONT */
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+
+/* NAVBAR */
+a { color: inherit; } 
+
+.site-header .navbar .navbar-nav .nav-link {
+    font-size: 1.1em;
+    position: relative;
+}
+.site-header .navbar .navbar-nav .nav-link:hover {
+    color: #0275d8;
+}
+.site-header .navbar .navbar-nav .nav-link::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: #0275d8;
+    color: transparent;
+    width: 0%;
+    content: '.';
+    height: 2px;
+    transition: all 0.5s;
+}
+.site-header .navbar .navbar-nav .nav-link:hover::after {
+    width: 80%;
+}

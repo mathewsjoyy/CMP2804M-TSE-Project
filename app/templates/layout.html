@@ -10,11 +10,55 @@
 
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <script type="text/javascript" src="{{ url_for('static', filename='index.js') }}"></script>
+    <meta name="description" content="Artefact produced by Group 10 from the University of Lincoln, to show the analysis of University related data">
+    <meta name="author" content="TSE Group 10">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
+
+    <!-- Navigation Bar -->
+    <header class="site-header" style="padding:4%">
+        <nav class="navbar navbar-expand-lg py-4 navbar-light bg-light fixed-top">
+            <div class="container">
+            <a class="navbar-brand" href="#">Lincoln (Make a logo)</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <div class="navbar-nav mr-auto">
+                </div>
+                <!--Right side-->
+                <div class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{url_for('main.index')}}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Reviews</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Data Insights</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Conclusions</a>
+                    </li>
+                </div>
+            </div>
+            </div>
+        </nav>
+    </header>
 
     <!-- Other html docs that inherit this doc will insert there content in here-->
     {% block content %}{% endblock %}
 
+
+
+
+
+
+
+
+    <!-- Bootstrap JS, allows bootstrap custom animations etc -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
