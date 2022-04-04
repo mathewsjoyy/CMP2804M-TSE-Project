@@ -4,7 +4,6 @@
     font-family: 'Poppins', sans-serif;
 }
 
-
 /* NAVBAR */
 a { color: inherit; } 
 
@@ -30,4 +29,20 @@ a { color: inherit; }
 }
 .site-header .navbar .navbar-nav .nav-link:hover::after {
     width: 80%;
+}
+
+/* IMAGE CAROUSEL */
+.carousel-item {
+    height: 60vh;
+    min-height: 350px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.carousel-control-next,
+.carousel-control-prev /*, .carousel-indicators */ {
+    filter: invert(0%);
 }

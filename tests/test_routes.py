@@ -1,15 +1,31 @@
-from flask import Flask
-import sys
-sys.path.append(".")
-from app.main.routes import main
+import pytest
+from app import create_app
 
-# Basic unit test for routes
-def test_base_route():
-    app = Flask(__name__)
-    app.register_blueprint(main, url_prefix='/')
+# Pytest fixture to create a Flask application and basic configuration
+@pytest.fixture(scope='module')
+def test_client():
+    flask_app = create_app()
     
-    client = app.test_client()
-    
-    response = client.get('/')
+    # Create a test client using the flask application configured for testing
+    with flask_app.test_client() as testing_client:
+        yield testing_client    # This is where the testing happens
+
+def test_base_route(test_client):
+    """
+    Given a Flask application
+    When the '/' route is requested (GET)
+    Then a status code of 200 is returned
+    """
+    response = test_client.get('/')
     
     assert response.status_code == 200
+
+def test_404_error_route(test_client):
+    """
+    Given a Flask application
+    When a invalid route is requested (GET)
+    Then a status code of 404 is returned
+    """
+    response = test_client.get('/does_not_exist')
+
+    assert response.status_code == 404

@@ -9,8 +9,10 @@ def create_app(config_class=Config):
     
     # import 'main' is the blueprint instance we made at start of main.routes files
     from app.main.routes import main
+    from app.errors.handlers import errors
     
     # Need to register our blueprint before we can use it in our actual app
     app.register_blueprint(main)
+    app.register_blueprint(errors)
     
     return app

@@ -7,3 +7,7 @@ load_dotenv(find_dotenv())
 class Config:
     # App secret key (needed to run on heroku)
     SECRET_KEY = str(os.environ.get('SECRET_KEY').encode('utf-8'))
+    
+    # Set if we are in debugging and testing mode (non-production mode)
+    TESTING = True
+    DEBUG = True
