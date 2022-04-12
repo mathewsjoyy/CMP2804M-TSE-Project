@@ -11,16 +11,16 @@ class Config:
     # Database configurations
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     
-    uri = ""    
+    uri = ""
     ENV = 'DEV'
-    
-    if ENV == 'DEV': # In development mode, we use the local database / debug mode
+
+    if ENV == 'DEV':    # In development mode, we use the local database / debug mode
         uri = os.environ.get('POSTGRES_URI_LOCAL')
-    else: # In production mode, we use the database (hosted & managed by Heroku)
+    else:   # In production mode, we use the database (hosted & managed by Heroku)
         uri = os.environ.get('POSTGRES_URI_PROD')
-    
+
     SQLALCHEMY_DATABASE_URI = uri
-    
+
     # Set if we are in debugging and testing mode (non-production mode)
     TESTING = True
     DEBUG = True

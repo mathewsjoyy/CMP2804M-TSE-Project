@@ -5,7 +5,7 @@ class Reviews(db.Model):
     # Table name
     __tablename__ = 'reviews'
 
-    """    
+    """
     -- Columns and constraints --
     Overall rating (5stars)
     Overall rating (Description - Tell us about your overall university experience so far.)
@@ -57,4 +57,3 @@ class Reviews(db.Model):
         return (f"Review('{self.course}', '{self.date}', '{self.overall_rating}', '{self.job_prospects_rating}', "
                 f"'{self.job_prospects_desc}', '{self.course_lecturer_rating}', '{self.course_lecturer_desc}', '{self.facilities_rating}', "
                 f"'{self.facilities_desc}', '{self.student_support_rating}', '{self.student_support_desc}', '{self.local_life_rating}', {self.local_life_desc}')")
-        

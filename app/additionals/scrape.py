@@ -1,4 +1,5 @@
-import sys, time
+import sys
+import time
 from datetime import datetime
 from bs4 import BeautifulSoup
 import regex as re
@@ -9,12 +10,12 @@ from app.models import Reviews
 # Stores all scraped data
 DATA = []
 
-def clean_data(var, is_num: bool = False) -> tuple[str,int]:
+def clean_data(var, is_num: bool = False) -> tuple[str, int]:
     """
     Performs basic data cleaning on the data passed in
     and returns the cleaned data, or None if the data is not valid
     """
-    if var == None:
+    if var is None:
         return None
 
     var = var.rstrip()
@@ -46,10 +47,10 @@ def connect_to_page(page_num: int) -> BeautifulSoup:
         'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36',
     ]
 
-    #Pick a random user agent
+    # Pick a random user agent
     user_agent = random.choice(user_agent_list)
 
-    #Set the headers
+    # Set the headers
     headers = {'User-Agent': user_agent}
 
     # Get the page
@@ -57,7 +58,7 @@ def connect_to_page(page_num: int) -> BeautifulSoup:
 
     # Check if the page has been successfully retrieved
     if connection.status_code != 200:
-        print(f"Error: Status code is not 200 (connection failed)")
+        print("Error: Status code is not 200 (connection failed)")
         sys.exit(0)
         
     # Get the page content
@@ -96,7 +97,7 @@ def scrape_data() -> None:
             # Grab the date of the review, convert from string to datetime and then to desired format
             datum['date'] = datetime.strftime(datetime.strptime(clean_data(str(review.find('div', class_='rev_dte').text)), '%d %b %y'), '%Y-%m-%d')
 
-            if review.find('h3') != None:   # Some reviews don't have a course (we don't want these reviews)
+            if review.find('h3') is None:   # Some reviews don't have a course (we don't want these reviews)
                 datum['course'] = clean_data(review.find('h3').text)
             else:
                 continue    # Skip this review
@@ -104,7 +105,7 @@ def scrape_data() -> None:
             # Get html data for each rating category for this review e.g. overall rating, student support rating etc.
             rating_categories = review.find_all('div', class_='rate_new')
 
-            # Loop through each rating category and grab desired data, if there is no data for a category, it will be skipped entirely 
+            # Loop through each rating category and grab desired data, if there is no data for a category, it will be skipped entirely
             # (1. The category 2. The rating 3. The question response
             for category in rating_categories:
                 try:
@@ -112,12 +113,12 @@ def scrape_data() -> None:
                         if category.find('span', class_='cat_rat').text == key:
                             # Grab the rating number
                             datum[target_categories[key][0]] = clean_data(str(category.find('span', class_=re.compile('ml5 rat rat*')))[-10], True)
-                            valid+=1
+                            valid += 1
                             
                             # If there is a response to the question, get the response
-                            if category.find('p', class_='rev_dec') != None and key != "OVERALL UNIVERSITY RATING":
+                            if category.find('p', class_='rev_dec') is None and key != "OVERALL UNIVERSITY RATING":
                                 datum[target_categories[key][1]] = clean_data(str(category.find('p', class_='rev_dec').text))
-                                valid+=1
+                                valid += 1
                 except Exception:   # Catch categories that have no category rating heading (we don't want these anyway)
                     continue
             
@@ -130,9 +131,9 @@ def scrape_data() -> None:
         time.sleep(1.0)
 
         print(f"Page {page_num} has been scraped.")
-        
+
 # Pass in database object and check if there is a valid connection
-def connectToDatabase(databaseObject) -> bool:    
+def connectToDatabase(databaseObject) -> bool:
     if databaseObject.session():
         print("Connected to database")
         return True
@@ -141,7 +142,7 @@ def connectToDatabase(databaseObject) -> bool:
         return False
 
 # Calls the scrape function to scrape required data, and pushes the data to passed in database object
-def scrape_and_store_data(dbObject) -> None:
+def scrape_and_store_data(databaseObject) -> None:
     scrape_data()
     
     if connectToDatabase(databaseObject):
@@ -161,8 +162,9 @@ def scrape_and_store_data(dbObject) -> None:
                                    review['student_support_response'], review['local_life_rating'], review['local_life_response'])
                     databaseObject.session.add(data)
                     databaseObject.session.commit()
-            except:
-                print("Could not insert review: " + str(review))
+            except Exception as e:
+                print("Could not insert review: " + str(review) + str(e))
                 continue
     else:
         print("Could not connect to database.")
+
