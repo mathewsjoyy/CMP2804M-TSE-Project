@@ -167,4 +167,3 @@ def scrape_and_store_data(databaseObject) -> None:
                 continue
     else:
         print("Could not connect to database.")
-
