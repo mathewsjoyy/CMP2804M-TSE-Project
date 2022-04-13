@@ -14,8 +14,8 @@ def create_app(config_class=Config):
     db.init_app(app)
     
     # Used to create the tables in the database
-    with app.app_context():
-        db.create_all()
+    # with app.app_context():
+    #     db.create_all()
     
     # import 'main' is the blueprint instance we made at start of main.routes files
     from app.main.routes import main
