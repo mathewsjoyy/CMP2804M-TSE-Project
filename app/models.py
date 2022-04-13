@@ -32,7 +32,7 @@ class Reviews(db.Model):
     facilities_desc = db.Column(db.Text(), nullable=True)
     student_support_rating = db.Column(db.Integer, nullable=False)
     student_support_desc = db.Column(db.Text(), nullable=True)
-    local_life_rating = db.Column(db.Integer, nullable=True)
+    local_life_rating = db.Column(db.Integer, nullable=False)
     local_life_desc = db.Column(db.Text(), nullable=True)
     
     # Constructor

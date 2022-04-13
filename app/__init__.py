@@ -13,6 +13,10 @@ def create_app(config_class=Config):
     # Pass in app for our extensions above this class
     db.init_app(app)
     
+    # Used to create the tables in the database
+    with app.app_context():
+        db.create_all()
+    
     # import 'main' is the blueprint instance we made at start of main.routes files
     from app.main.routes import main
     from app.errors.handlers import errors
