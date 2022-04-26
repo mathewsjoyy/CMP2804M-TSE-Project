@@ -15,7 +15,7 @@ def index():
 def reviews():
     # Paginate / Pagination is where we split items (posts/reviews) into separate pages for readability
     # and also to prevent longer loading times for each page
-    page = request.args.get('page', 1, type=int) # default 1, type int
+    page = request.args.get('page', 1, type=int)    # default 1, type int
     
     # Grab 6 posts per page (default)
     posts = Reviews.query.order_by(Reviews.date.desc()).paginate(page=page, per_page=5)
