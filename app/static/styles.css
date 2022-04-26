@@ -46,3 +46,66 @@ a { color: inherit; }
 .carousel-control-prev /*, .carousel-indicators */ {
     filter: invert(0%);
 }
+
+/* REVIEW BOXES */
+#reviews{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.review-box-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.review-box{
+    width: 500px;
+    padding: 20px;
+    overflow: hidden;
+    margin: 15px;
+    cursor: pointer;
+}
+
+.hideContent {
+    overflow: hidden;
+    line-height: 1em;
+    height: 0em;
+}
+
+.showContent {
+    line-height: 1em;
+    height: auto;
+}
+.showContent{
+    height: auto;
+}
+
+.show-more {
+    padding: 10px 0;
+    text-align: center;
+}
+
+/* Pagination button */
+#pagebutton_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, .15);  
+    backdrop-filter: blur(5px);
+}
+  
+#pagebutton {
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    color: black;
+    text-align: center;
+}
