@@ -18,8 +18,8 @@ def clean_data(var, is_num: bool = False) -> tuple[str, int]:
         return None
 
     var = var.rstrip()
-    var = var.replace('\n',' ')
-    var = var.replace('\t',' ')
+    var = var.replace('\n', ' ')
+    var = var.replace('\t', ' ')
 
     if var == "":
         return None
@@ -152,7 +152,7 @@ def connectToDatabase(databaseObject) -> bool:
     
 # Retrieves student survey data from external form results (stored in a excel file)
 def get_excel_data() -> None:
-    survey_df = pd.read_excel('University_of_Lincoln_Student_Survey.xlsx', na_filter = False)
+    survey_df = pd.read_excel('University_of_Lincoln_Student_Survey.xlsx', na_filter=False)
 
     datum = {}
     
@@ -177,8 +177,8 @@ def get_excel_data() -> None:
 
 # Calls the scrape function to scrape required data, and pushes the data to passed in database object
 def scrape_and_store_data(databaseObject) -> None:
-    #get_excel_data()
-    #scrape_data()
+    # get_excel_data()
+    # scrape_data()
     
     if connectToDatabase(databaseObject):
         # Insert all data into the database
