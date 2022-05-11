@@ -6,7 +6,7 @@ load_dotenv(find_dotenv())
 # including the secret key, database configuration, and other
 class Config:
     # App secret key (needed to run on heroku)
-    SECRET_KEY = str(os.environ.get('SECRET_KEY').encode('utf-8'))
+    #SECRET_KEY = str(os.environ.get('SECRET_KEY').encode('utf-8'))
     
     # Database configurations
     uri = ""
