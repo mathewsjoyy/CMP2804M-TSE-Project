@@ -3,32 +3,34 @@
 {% block content %}
     <title>Home</title>
 
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img class="d-block w-100" src="{{ url_for('static', filename='images/uol-image-1.jpg') }}" alt="First slide">
-        </div>
-        <div class="carousel-item">
-          <img class="d-block w-100" src="{{ url_for('static', filename='images/uol-image-2.jpg') }}" alt="Second slide">
-        </div>
-        <div class="carousel-item">
-          <img class="d-block w-100" src="{{ url_for('static', filename='images/uol-image-3.jpg') }}" alt="Third slide">
-        </div>
+    <!-- Holds Homepage Content -->
+    <div class="home-container">
+      <!-- Container for image -->
+      <div class="home-image">
+        <!-- Both versions of the INB image -->
+        <img class="faded-image" src="{{ url_for('static', filename='images/uol-INB.png') }}">
+        <img class="solid-image" src="{{ url_for('static', filename='images/uol-image-1.jpg') }}">
       </div>
-      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      
-      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-      </a>
+      <!-- About Us Section -->
+      <div class="home-mission">
+        <h1>Our Mission</h1>
+        <p>The goal of this website is to give any prospective students an insight into
+          current students feelings towards the University of Lincoln. This will hopefully give prospective students
+          and anyone interested a good understanding of the student satisfaction level of the university.</p>
+          <p>To give an adequate overview of many different students perspectives we have covered past and present students,
+            as well as students across all courses. We obtained this information by sending a survey throught the university
+            as well as scraping data from
+            <a href="https://www.whatuni.com/university-course-reviews/university-of-lincoln/">What Uni?</a>
+          </p> 
+      </div>
+      <div class="banner">
+        <p>University of Lincoln experiences rated, by students, for students.</p>
+      </div>
+      <!-- Featured Reviews -->
+      <div class="home-featured">
+        <h1>Featured Reviews</h1>
+        <!-- PLEASE LEAVE 4 REVIEWS HERE -->
+      </div>
     </div>
     
 {% endblock content %}
