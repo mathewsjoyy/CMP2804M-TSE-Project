@@ -26,9 +26,11 @@
 
     <!-- Navigation Bar -->
     <header class="site-header" style="padding:3%">
-        <nav class="navbar navbar-expand-lg py-4 navbar-light bg-light fixed-top">
+        <nav class="navbar navbar-expand-lg py-2 navbar-light bg-light fixed-top">
             <div class="container">
-            <a class="navbar-brand" href="#">Lincoln (Make a logo)</a>
+                <a href="{{url_for('main.index')}}">
+                    <img class="navbar-brand" src="{{url_for('static',filename='images/site-logo.png')}}" style="width:75px; height:80px;" alt="logo"></img>
+                </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -44,10 +46,10 @@
                         <a class="nav-link" href="{{url_for('main.reviews')}}">Reviews</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Data Insights</a>
+                        <a class="nav-link" href="{{url_for('main.insights')}}">Data Insights</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Conclusions</a>
+                        <a class="nav-link" href="{{url_for('main.conclusions')}}">Conclusions</a>
                     </li>
                 </div>
             </div>
