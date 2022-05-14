@@ -176,7 +176,7 @@ def get_excel_data() -> None:
 
 # Calls the scrape function to scrape required data, and pushes the data to passed in database object
 def scrape_and_store_data(databaseObject) -> None:
-    #get_excel_data()
+    # get_excel_data()
     # scrape_data()
     
     if connectToDatabase(databaseObject):
