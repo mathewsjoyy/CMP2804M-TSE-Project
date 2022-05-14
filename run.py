@@ -13,5 +13,5 @@ if __name__ == '__main__':
     #scrape_and_store_data(db)
 
     # Run the app
-    app.run(debug=False)    # TODO CHANGE TO FALSE WHEN COMMITING TO HEROKU
+    app.run(debug=False)
 

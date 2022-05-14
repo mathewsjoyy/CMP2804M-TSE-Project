@@ -11,6 +11,7 @@
         <img class="faded-image" src="{{ url_for('static', filename='images/uol-INB.png') }}">
         <img class="solid-image" src="{{ url_for('static', filename='images/uol-image-1.jpg') }}">
       </div>
+
       <!-- About Us Section -->
       <div class="home-mission">
         <h1>Our Mission</h1>
@@ -23,13 +24,145 @@
             <a href="https://www.whatuni.com/university-course-reviews/university-of-lincoln/">What Uni?</a>
           </p> 
       </div>
+
       <div class="banner">
         <p>University of Lincoln experiences rated, by students, for students.</p>
       </div>
+
       <!-- Featured Reviews -->
-      <div class="home-featured">
+      <div class="home-featured pt-5">
         <h1>Featured Reviews</h1>
-        <!-- PLEASE LEAVE 4 REVIEWS HERE -->
+          <section id="reviews">
+            <div class="review-box-container">
+                <!-- Get all the data from flask that classify for featured review-->
+                {% for review in reviews %}
+                  <div class="review-box">
+                      <div class="box-top">
+
+                          <div class="profile">
+                              <div class="profile-img">
+                                  <img src="{{ url_for('static', filename='images/Lincoln-Logo.png') }}" width="50" height="50" alt="profile">
+                              </div> 
+                              <div class="name-user">
+                                  <strong>{{ review.course }}</strong>
+                                  <span> {{ review.date.strftime('%Y-%m-%d') }}</span>
+                              </div>
+                          </div>
+                          
+                          <!-- Overall rating star display-->
+                          {% if review.local_life_rating > 0 %}
+                              <div class="review-content">
+                                  <b>Overall Rating</b>
+                                  {% for x in range(0, review.overall_rating) %}
+                                      <i class="fas fa-star"></i>
+                                  {% endfor %}
+                                  {% for x in range(0, 5 - review.overall_rating) %}
+                                      <i class="far fa-star"></i> <!-- Holo star -->
+                                  {% endfor %}
+                              </div>
+                          {% endif %}
+                          
+                          <!-- Job prospects rating -->
+                          {% if review.local_life_rating > 0 %}
+                              <div class="review-content">
+                                  <b>Job Prospects</b>
+                                  {% for x in range(0, review.job_prospects_rating) %}
+                                      <i class="fas fa-star"></i>
+                                  {% endfor %}
+                                  {% for x in range(0, 5 - review.job_prospects_rating) %}
+                                      <i class="far fa-star"></i>
+                                  {% endfor %}
+                              </div>
+                          {% endif %}
+
+                          <!-- Course lecturer rating -->
+                          {% if review.local_life_rating > 0 %}
+                              <div class="review-content">
+                                  <b>Course & Lecturer</b>
+                                  {% for x in range(0, review.course_lecturer_rating) %}
+                                      <i class="fas fa-star"></i>
+                                  {% endfor %}
+                                  {% for x in range(0, 5 - review.course_lecturer_rating) %}
+                                      <i class="far fa-star"></i>
+                                  {% endfor %}
+                              </div>
+                          {% endif %}
+
+                          <!-- Facilities rating -->
+                          {% if review.local_life_rating > 0 %}
+                              <div class="review-content">
+                                  <b>Facilities</b>
+                                  {% for x in range(0, review.facilities_rating) %}
+                                      <i class="fas fa-star"></i>
+                                  {% endfor %}
+                                  {% for x in range(0, 5 - review.facilities_rating) %}
+                                      <i class="far fa-star"></i>
+                                  {% endfor %}
+                              </div>
+                          {% endif %}
+
+                          <!-- Student Support rating -->
+                          {% if review.local_life_rating > 0 %}
+                              <div class="review-content">
+                                  <b>Student Support</b>
+                                  {% for x in range(0, review.student_support_rating) %}
+                                      <i class="fas fa-star"></i>
+                                  {% endfor %}
+                                  {% for x in range(0, 5 - review.student_support_rating) %}
+                                      <i class="far fa-star"></i>
+                                  {% endfor %}
+                              </div>
+                          {% endif %}
+
+                          <!-- Local Life rating -->
+                          {% if review.local_life_rating > 0 %}
+                              <div class="review-content">
+                                  <b>Local Life</b>
+                                  {% for x in range(0, review.local_life_rating) %}
+                                      <i class="fas fa-star"></i>
+                                  {% endfor %}
+                                  {% for x in range(0, 5 - review.local_life_rating) %}
+                                      <i class="far fa-star"></i>
+                                  {% endfor %}
+                              </div>
+                          {% endif %}
+                      </div>
+                      
+                      <div class="content hideContent">
+                          {% if review.course_lecturer_desc != "N/A"%}
+                              <b>What do you like/dislike about the way your course and lecturers? (How is the course teaching balance?)</b>
+                              <p>{{review.course_lecturer_desc}}</p>
+                          {% endif %}
+
+                          {% if review.facilities_desc != "N/A" %}
+                              <b>How are your university's facilities? what can be improved?</b>
+                              <p>{{review.facilities_desc}}</p>
+                          {% endif %}
+
+                          {% if review.student_support_desc != "N/A"%}
+                              <b>How good is the support offered by the uni?</b>
+                              <p>{{review.student_support_desc}}</p>
+                          {% endif %}
+
+                          {% if review.job_prospects_desc != "N/A"%}
+                              <b>How does your uni make efforts to increase your employability?</b>
+                              <p>{{review.job_prospects_desc}}</p>
+                          {% endif %}
+                          
+                          {% if review.local_life_desc != "N/A"%}
+                              <b>Is your university in a good location in terms of distance to accommodation and local amenities?</b>
+                              <p>{{review.local_life_desc}}</p>
+                          {% endif %}
+                      </div>
+
+                      <div class="show-more">
+                          <a href="#">Show more</a>
+                      </div>
+
+                  </div>
+                {% endfor %}
+            </div>
+          </section>
       </div>
     </div>
     
