@@ -10,11 +10,11 @@ class Config:
     
     # Database configurations
     uri = ""
-    ENV = 'PROD'    # TODO CHANGE TO DEV WHEN RUNNING LOCALLY, CHANGE TO PROD WHEN COMMITING TO HEROKU
+    ENV = 'DEV'    # TODO CHANGE TO DEV WHEN RUNNING LOCALLY, CHANGE TO PROD WHEN COMMITING TO HEROKU
     DEBUG = True
     TESTING = True
 
-    if ENV == 'DEV':    # In development mode, we use the local database / debug mode
+    if ENV == 'PROD':    # In development mode, we use the local database / debug mode
         uri = os.environ.get('POSTGRES_URI_LOCAL')
     else:   # In production mode, we use the database (hosted & managed by Heroku)
         uri = os.environ.get('POSTGRES_URI_PROD')
