@@ -224,3 +224,22 @@ max-width: 610px;
 .charts img {
 max-width: 700px
 }
+
+/* Conclusion */
+.conclusion-container {
+    width: 100%;
+    padding: 3%;
+    padding-bottom: 0%;
+}
+.conclusion-text {
+    width: 100%;
+    padding: 5%;
+    background-color: #e9e9e9;
+}
+
+@media screen and (max-width: 1315px) {
+    .conclusion-container {
+        padding: 5%;
+
+    }
+}
