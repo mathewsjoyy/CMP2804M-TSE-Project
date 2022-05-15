@@ -1,6 +1,48 @@
-<!-- Home page html, this automatically extends everything form layout.html -->
+<!-- Conclusions page html, this automatically extends everything form layout.html -->
 {% extends "layout.html" %}
 {% block content %}
+    <title>Conclusion</title>
+    <div class="conclusion-container">
+        <div class="conclusion-text">
+            <h1>Conclusion</h1>
+            <p> This website is a product a of Level 2 University Assessment made by Computer
+                Science students for the University of Lincoln as part of the Team Software
+                Engineering module. We hope that this website has given you a good insight
+                into the thoughts and feelings of University of Lincoln students past and present.
+            </p>
+            <p> The data we scraped from
+                <a href="https://www.whatuni.com/university-course-reviews/university-of-lincoln/">What Uni?</a>
+                ranges from beginning 2018 to the present.
+                This gives us confidence that the data on this website is not out-dated while
+                giving us a large enough window for a diverse set of opinions. One of the reasons
+                this is especially important is because our timeframe encompasses the largest
+                worldwide socioeconomic
+                disruption seen this century, with the COVID-19 pandemic. This means that our
+                results from March 2020 to at least December 2021, if not the present, will be
+                skewed. This especially leaves gaps in the 2020-2021 timeframe in which time
+                students did not submit as many reviews. In contrast reviews submitted in 2019
+                make up a large majority of our dataset.
+            </p>
+            <p> As for the data we collected through our survey; that too had a few obstacles
+                we had to overcome. The first issue was that we were collecting data by
+                forwarding the survey to fellow students. This in turn means we will largely
+                only get data based on students who have not yet graduated. This greatly
+                diminishes our range as it might not include pre-pandemic opinions when
+                attending the university might be more normal and consistent. As well as
+                this the main avenue for survey distribution was relaying it to friends
+                and colleagues. The issue with that being that these people are likely
+                to be fellow Computer Science students which would lead to a biased dataset
+                as well as a dataset lacking diversity. We tried to actively avoid posting
+                the survey in any digital groups that were based around a particular course.
+            </p>
+            <p> Overall all the opinions of the students were positive. To make the results
+                easily readable we included a star-based rating system into our website.
+                The mean averages for all five category ratings were all at or above 4 out of 5.
+                Not only were students pleased with the given categories, the overall university
+                satisfaction rating followed a similar pattern of being above 4 stars. This 4 star-based
+                rating was consistent between the four years.
+            </p>
 
-
+        </div>
+    </div>
 {% endblock content %}
