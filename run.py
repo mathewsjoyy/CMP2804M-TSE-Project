@@ -1,6 +1,6 @@
 from app import create_app
-#from app.additionals.scrape import scrape_and_store_data # Used to scrape data from website
 from app import db
+#from app.additionals.scrape import scrape_and_store_data # Used to scrape data from website
 
 # Call the create_app function to create the app object
 app = create_app()
@@ -13,5 +13,5 @@ if __name__ == '__main__':
     #scrape_and_store_data(db)
 
     # Run the app
-    app.run(debug=False)    # TODO CHANGE TO FALSE WHEN COMMITING TO HEROKU
+    app.run(debug=False)
 

@@ -1,0 +1,27 @@
+<!-- Home page html, this automatically extends everything form layout.html -->
+{% extends "layout.html" %}
+{% block content %}
+    <title>Insights</title>
+
+    <!-- Data analytics visualizations -->
+    <div style="text-align: center;justify-content: center; padding-top: 30px;">
+        <h4>Data visualizations</h3>
+    </div>
+    
+    <!-- Data viz embedded charts from plotly -->
+    <div class="plotly-charts">
+        <div class="charts">
+            <iframe frameborder="0" scrolling="no" src="//plotly.com/~mathewsjoyy/3.embed?logo=false&link=false&autosize=true"></iframe>
+        </div>
+        <div class="charts">
+            <iframe frameborder="0" scrolling="no" src="//plotly.com/~mathewsjoyy/1.embed?logo=false&link=false&autosize=true"></iframe>
+        </div>
+        <div class="charts">
+            <img src="{{url_for('static', filename='images/good-wordcloud.png')}}" alt="Word Cloud Positive" >
+        </div>
+        <div class="charts">
+            <img src="{{url_for('static', filename='images/bad-wordcloud.png')}}" alt="Word Cloud Negative-Neutral">
+        </div>
+    </div>
+
+{% endblock content %}

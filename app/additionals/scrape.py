@@ -153,11 +153,11 @@ def connectToDatabase(databaseObject) -> bool:
 # Retrieves student survey data from external form results (stored in a excel file)
 def get_excel_data() -> None:
     survey_df = pd.read_excel('University_of_Lincoln_Student_Survey.xlsx', na_filter=False)
-
-    datum = {}
     
     # Add all data to the global data
     for index, row in survey_df.iterrows():
+        datum = {}
+        
         datum['date'] = datetime.strftime(datetime.strptime(clean_data(str(row['Date'])), '%Y-%m-%d %H:%M:%S'), '%Y-%m-%d')
         datum['course'] = clean_data(str(row['Course']))
         datum['overall_rating'] = clean_data(str(row['Overall university rating']))
@@ -173,7 +173,6 @@ def get_excel_data() -> None:
         datum['local_life_response'] = clean_data(str(row['City comments']))
         
         DATA.append(datum)
-        print(f"{datum}\n\n")
 
 # Calls the scrape function to scrape required data, and pushes the data to passed in database object
 def scrape_and_store_data(databaseObject) -> None:

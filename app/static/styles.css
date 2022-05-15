@@ -187,3 +187,40 @@ a { color: inherit; }
     color: black;
     text-align: center;
 }
+
+/* DATA VIZ CHARTS */
+.plotly-charts {
+    padding-top: 5px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* add grid gaps (gaps between rows and columns) */
+    column-gap: 5px;
+    row-gap: 10px;
+}
+
+/* make cell flex */
+.charts {
+display: flex;
+justify-content: center;
+}
+
+.charts iframe {
+width: 100%;
+/* you can add ratios to your iframe in other way */
+aspect-ratio: 6/5;
+}
+
+/* add styles to you images, make it responsive */
+.charts img {
+height: auto;
+width: 100%;
+}
+
+/* added for example purposes */
+.charts iframe, .charts img {
+max-width: 610px;
+}
+
+.charts img {
+max-width: 700px
+}

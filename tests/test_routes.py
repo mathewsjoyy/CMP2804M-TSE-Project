@@ -29,6 +29,26 @@ def test_reviews_route(test_client):
     response = test_client.get('/reviews')
     
     assert response.status_code == 200
+    
+def test_insights_route(test_client):
+    """
+    Given a Flask application
+    When the '/insights' route is requested (GET)
+    Then a status code of 200 is returned
+    """
+    response = test_client.get('/insights')
+    
+    assert response.status_code == 200
+    
+def test_conclusions_route(test_client):
+    """
+    Given a Flask application
+    When the '/conclusions' route is requested (GET)
+    Then a status code of 200 is returned
+    """
+    response = test_client.get('/conclusions')
+    
+    assert response.status_code == 200
 
 def test_404_error_route(test_client):
     """
