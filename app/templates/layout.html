@@ -29,7 +29,10 @@
     <header class="site-header">
         <nav class="navbar navbar-expand-lg py-4 navbar-light bg-light ">
             <div class="container">
-            <a class="navbar-brand" href="#">Lincoln Student Reviews</a>
+            <a href="{{ url_for('main.index')}}">
+                <a class="navbar-brand">Lincoln Student Reviews</a>
+                <img class="navbar-brand" src="{{ url_for('static', filename='images/site-logo.png')}}" style="width:70px; height:75px;" alt="Lincoln University Logo">
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
