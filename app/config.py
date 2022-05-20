@@ -1,6 +1,5 @@
 import os
 from dotenv import load_dotenv, find_dotenv
-import re
 load_dotenv(find_dotenv())
 
 # Class that holds the configuration for the app
