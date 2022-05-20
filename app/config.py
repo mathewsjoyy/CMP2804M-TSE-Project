@@ -17,10 +17,12 @@ class Config:
     if ENV == 'DEV':    # In development mode, we use the local database / debug mode
         uri = os.environ.get('POSTGRES_URI_LOCAL')
     else:   # In production mode, we use the database (hosted & managed by Heroku)
+        uri = os.environ.get('DATABASE_URL')
+        
         # Fix uri to work with heroku
         if uri and uri.startswith("postgres://"):
             uri = uri.replace("postgres://", "postgresql://", 1)
-        uri = os.environ.get('DATABASE_URL')
+            
         DEBUG = False
         TESTING = False
 
