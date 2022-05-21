@@ -3,7 +3,18 @@
 {% block content %}
     <title>Reviews</title>
 
+    <!-- Buttons to help filter reviews -->
+    <div class="filter-buttons">
+        <h5>Filter reviews</h5>
+        <form action="{{ url_for('main.reviews') }}" method="POST">
+            <button type="submit" name="latest" value="latest" class="btn btn-primary btn-sm">Latest Reviews</button>
+            <button type="submit" name="oldest" value="oldest" class="btn btn-primary btn-sm">Oldest Reviews</button>
+        </form>
+    </div>
+    <hr>
+
     <section id="reviews">
+
         <div class="review-box-container">
             <!-- Get all the data from postgres database-->
             {% for review in reviews.items %}
@@ -127,7 +138,7 @@
                     </div>
 
                     <div class="show-more">
-                        <a href="#">Show more</a>
+                        <a href="#/">Show more</a>
                     </div>
 
                 </div>

@@ -15,3 +15,13 @@ $(".show-more a").on("click", function() {
     
     $this.text(linkText);
 });
+
+
+// Scroll to top button
+const btn = document.querySelector("#btnScrollToTop");
+
+btn.addEventListener("click", function() {
+
+    // Animate the button to scroll smoothly to the top of the page
+    $("html, body").animate({ scrollTop: 0}, "slow");
+});

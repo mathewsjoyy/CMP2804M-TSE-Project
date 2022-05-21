@@ -14,14 +14,30 @@ def index():
     return render_template("index.html", reviews=posts)
 
 # Reviews page
-@main.route("/reviews")
+latest_posts = True    # Flag to check if we need to grab the latest posts
+
+@main.route("/reviews", methods=['GET','POST'])
 def reviews():
+    global latest_posts    # Need to make this global so we can change it in the function
+    
     # Paginate / Pagination is where we split items (posts/reviews) into separate pages for readability
     # and also to prevent longer loading times for each page
     page = request.args.get('page', 1, type=int)    # default 1
     
     # Grab 5 posts per page (default)
-    posts = Reviews.query.order_by(Reviews.date.desc()).paginate(page=page, per_page=5)
+    if latest_posts:
+        posts = Reviews.query.order_by(Reviews.date.desc()).paginate(page=page, per_page=5)
+    else:
+        posts = Reviews.query.order_by(Reviews.date.asc()).paginate(page=page, per_page=5)
+    
+    # Check if we receive a POST request
+    if request.method == "POST":
+        if request.form.get("latest"):
+            posts = Reviews.query.order_by(Reviews.date.desc()).paginate(page=page, per_page=5)
+            latest_posts = True
+        elif request.form.get("oldest"):
+            posts = Reviews.query.order_by(Reviews.date.asc()).paginate(page=page, per_page=5)
+            latest_posts = False
     
     return render_template("reviews.html", reviews=posts)
 
