@@ -16,7 +16,7 @@ def index():
 # Reviews page
 latest_posts = True    # Flag to check if we need to grab the latest posts
 
-@main.route("/reviews", methods=['GET','POST'])
+@main.route("/reviews", methods=['GET', 'POST'])
 def reviews():
     global latest_posts    # Need to make this global so we can change it in the function
     
