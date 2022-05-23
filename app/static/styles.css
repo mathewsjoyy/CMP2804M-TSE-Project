@@ -285,3 +285,17 @@ max-width: 700px
     justify-content: center;
     text-align: center;
 }
+
+.course-filter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.course-filter select {
+    max-width: 100%; 
+    text-overflow: ellipsis;
+    align-items: center;
+    flex-wrap: wrap;
+}

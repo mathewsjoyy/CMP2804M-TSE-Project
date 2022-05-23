@@ -9,6 +9,17 @@
         <form action="{{ url_for('main.reviews') }}" method="POST">
             <button type="submit" name="latest" value="latest" class="btn btn-primary btn-sm">Latest Reviews</button>
             <button type="submit" name="oldest" value="oldest" class="btn btn-primary btn-sm">Oldest Reviews</button>
+            <br>
+            <div class="course-filter pt-2">
+                <span>Filter by course⠀</span>
+                    <select name="course_select">
+                        <option value="{{courses[0]}}" selected>{{courses[0]}}</option>
+                        {% for c in courses[1:] %}
+                        <option value="{{ c }}">{{ c }}</option>
+                        {% endfor %}
+                    </select>
+                <button type="submit" class="btn btn-primary btn-sm">Go</button>
+            </div>
         </form>
     </div>
     <hr>

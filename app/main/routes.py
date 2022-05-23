@@ -15,10 +15,14 @@ def index():
 
 # Reviews page
 latest_posts = True    # Flag to check if we need to grab the latest posts
+setup = True    # Flag to check if we need to setup the filter course dropdown
+courses = ['ALL']    # List of all courses to allow user to filter by course
+current_course_filter = 'ALL'    # Current course filter
 
 @main.route("/reviews", methods=['GET', 'POST'])
 def reviews():
-    global latest_posts    # Need to make this global so we can change it in the function
+    # Need to make this global so we can change it in the function
+    global latest_posts, setup, current_course_filter
     
     # Paginate / Pagination is where we split items (posts/reviews) into separate pages for readability
     # and also to prevent longer loading times for each page
@@ -33,13 +37,32 @@ def reviews():
     # Check if we receive a POST request
     if request.method == "POST":
         if request.form.get("latest"):
-            posts = Reviews.query.order_by(Reviews.date.desc()).paginate(page=page, per_page=5)
+            if current_course_filter != 'ALL':    # If we have a course filter then filter by that
+                posts = Reviews.query.filter_by(course=current_course_filter).order_by(Reviews.date.desc()).paginate(page=page, per_page=5)
+            else:
+                posts = Reviews.query.order_by(Reviews.date.desc()).paginate(page=page, per_page=5)
             latest_posts = True
         elif request.form.get("oldest"):
-            posts = Reviews.query.order_by(Reviews.date.asc()).paginate(page=page, per_page=5)
+            if current_course_filter != 'ALL':
+                posts = Reviews.query.filter_by(course=current_course_filter).order_by(Reviews.date.asc()).paginate(page=page, per_page=5)
+            else:
+                posts = Reviews.query.order_by(Reviews.date.asc()).paginate(page=page, per_page=5)
             latest_posts = False
+        elif request.form.get("course_select"):  
+            course_selection = request.form.get('course_select')
+            current_course_filter = course_selection
+            if course_selection == 'ALL':    # If we select 'ALL' then we want to grab all posts
+                posts = Reviews.query.order_by(Reviews.date.desc()).paginate(page=page, per_page=5)
+            else:
+                posts = Reviews.query.filter_by(course=course_selection).order_by(Reviews.date.desc()).paginate(page=page, per_page=5)
     
-    return render_template("reviews.html", reviews=posts)
+    # Check if we need to setup the filter course dropdown
+    if setup:
+        for value in Reviews.query.distinct(Reviews.course):    # Grab all unique courses
+            courses.append(value.course)
+        setup = False
+    
+    return render_template("reviews.html", reviews=posts, courses=courses)
 
 # Data insights page
 @main.route("/insights")
