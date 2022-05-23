@@ -135,19 +135,22 @@ a { color: inherit; }
 }
 
 .review-box-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    width: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-wrap: wrap;
+width: 100%;
 }
 
 .review-box{
-    width: 500px;
-    padding: 20px;
-    overflow: hidden;
-    margin: 15px;
-    cursor: pointer;
+width: 500px;
+box-shadow: 2px 2px 30px rgba(0,0,0,0.1);
+background-color: #ffffff;
+padding: 20px;
+border-radius: 25px;
+overflow: hidden;
+margin: 15px;
+cursor: pointer;
 }
 
 .hideContent {
@@ -198,12 +201,25 @@ a { color: inherit; }
     row-gap: 10px;
 }
 
+.plotly-charts2 {
+    padding-top: 5px;
+    display: grid;
+    grid-template-columns: 1fr;
+    /* add grid gaps (gaps between rows and columns) */
+    column-gap: 5px;
+    row-gap: 10px;
+}
+
 /* make cell flex */
 .charts {
 display: flex;
 justify-content: center;
 }
 
+.charts2 {
+    display: flex;
+    justify-content: center;
+}
 .charts iframe {
 width: 100%;
 /* you can add ratios to your iframe in other way */

@@ -149,16 +149,16 @@
 
     <!--Page number nav bar-->
     <!--Loop through the page numbers -->
-    <div id="pagebutton_container">
+    <div id="pagebutton_container" class="pt-4">
         {% for page_num in reviews.iter_pages(left_edge = 1, right_edge = 1, left_current = 1, right_current = 2) %}
             {% if page_num %} <!--If page num is not None give link to the page-->
             {% if reviews.page == page_num %} <!--If we on the current page then outline that button-->
-                <a id="pagebutton" href="{{ url_for('main.reviews', page=page_num) }}">{{ page_num }}</a>
+                <a class="btn btn-primary mb-4" href="{{ url_for('main.reviews', page=page_num) }}">{{ page_num }}</a>
             {% else %}
-                <a id="pagebutton" href="{{ url_for('main.reviews', page=page_num) }}">{{ page_num }}</a>
+                <a class="btn btn-outline-primary mb-4" href="{{ url_for('main.reviews', page=page_num) }}">{{ page_num }}</a>
             {% endif %}
             {% else %} <!--If page num is none then just put an ellipse-->
-            ...
+            ⠀...⠀
             {% endif %}
         {% endfor %}
     </div>
