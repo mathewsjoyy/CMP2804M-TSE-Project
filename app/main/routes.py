@@ -30,14 +30,20 @@ def reviews():
     
     # Grab 5 posts per page (default)
     if latest_posts:
-        posts = Reviews.query.order_by(Reviews.date.desc()).paginate(page=page, per_page=5)
+        if current_course_filter != 'ALL':    # If we have a course filter then filter by that
+            posts = Reviews.query.filter_by(course=current_course_filter).order_by(Reviews.date.desc()).paginate(page=page, per_page=5)
+        else:
+            posts = Reviews.query.order_by(Reviews.date.desc()).paginate(page=page, per_page=5)
     else:
-        posts = Reviews.query.order_by(Reviews.date.asc()).paginate(page=page, per_page=5)
+        if current_course_filter != 'ALL':
+            posts = Reviews.query.filter_by(course=current_course_filter).order_by(Reviews.date.asc()).paginate(page=page, per_page=5)
+        else:
+            posts = Reviews.query.order_by(Reviews.date.asc()).paginate(page=page, per_page=5)
     
     # Check if we receive a POST request
     if request.method == "POST":
         if request.form.get("latest"):
-            if current_course_filter != 'ALL':    # If we have a course filter then filter by that
+            if current_course_filter != 'ALL':
                 posts = Reviews.query.filter_by(course=current_course_filter).order_by(Reviews.date.desc()).paginate(page=page, per_page=5)
             else:
                 posts = Reviews.query.order_by(Reviews.date.desc()).paginate(page=page, per_page=5)
@@ -48,7 +54,7 @@ def reviews():
             else:
                 posts = Reviews.query.order_by(Reviews.date.asc()).paginate(page=page, per_page=5)
             latest_posts = False
-        elif request.form.get("course_select"):  
+        elif request.form.get("course_select"):
             course_selection = request.form.get('course_select')
             current_course_filter = course_selection
             if course_selection == 'ALL':    # If we select 'ALL' then we want to grab all posts
