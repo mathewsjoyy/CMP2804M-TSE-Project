@@ -28,6 +28,9 @@ def reviews():
     # and also to prevent longer loading times for each page
     page = request.args.get('page', 1, type=int)    # default 1
     
+    # Get our initial posts
+    posts = Reviews.query.order_by(Reviews.date.desc()).paginate(page=page, per_page=5)
+    
     # Grab 5 posts per page (default)
     if latest_posts:
         if current_course_filter != 'ALL':    # If we have a course filter then filter by that
@@ -56,7 +59,8 @@ def reviews():
             latest_posts = False
         elif request.form.get("course_select"):
             course_selection = request.form.get('course_select')
-            current_course_filter = course_selection
+            current_course_filter = course_selection    # Update the current course filter
+            
             if course_selection == 'ALL':    # If we select 'ALL' then we want to grab all posts
                 posts = Reviews.query.order_by(Reviews.date.desc()).paginate(page=page, per_page=5)
             else:
