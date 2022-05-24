@@ -15,7 +15,7 @@ The people who contributed to this project are:
 - George Finch
 
 # Other repositories used for this project
-[Addtional Scripts Repo](https://github.com/mathewsjoyy/TSE-Group10-Addtional-Scripts)
+[Addtional Scripts Repo](https://github.com/a1fienewt0n/TSE-Group10-Additional-Scripts)
 
 # External Resources Used
 
