@@ -34,4 +34,86 @@
         </div>
     </div>
 
+    <hr>
+
+    <section id="data-comments-section" class="container mb-3">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-header">
+                    <h4>Data Conclusions</h4>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p>
+                    The original aim for the visualizations was to provide a more easy to understand and easily interpretable look at the overall university
+                    review data. Essentially allowing a graphical summary of different parts of the data, such as the overall rating for the University of Lincoln
+                    over the previous years. However, it was soon found after basic data analysis that the data was limited in the visualizations able to be derived from it.
+                </p>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h4>Dataset Limitations and Considerations</h4>
+                <p>
+                    <li>
+                        <code>
+                            <table style="width: 250px;float: left;">
+                                <tr>
+                                  <th>Year</th>
+                                  <th>No. Reviews</th>
+                                </tr>
+                                <tr>
+                                  <td>2022</td>
+                                  <td>40</td>
+                                </tr>
+                                <tr>
+                                  <td>2021</td>
+                                  <td>23</td>
+                                </tr>
+                                <tr>
+                                  <td>2020</td>
+                                  <td>133</td>
+                                </tr>
+                                <tr>
+                                  <td>2019</td>
+                                  <td>309</td>
+                                </tr>
+                                <tr>
+                                  <td>2018</td>
+                                  <td>122</td>
+                                </tr>
+                                <tr>
+                                  <td>2017</td>
+                                  <td>93</td>
+                                </tr>
+                              </table>
+                        </code>
+                        There is a heavy amount of reviews in 2019 but very little in 2022 and 2021
+                        This is important to keep in mind during analysis, as when creating visualizations comparing the data from different years,
+                        e.g. mean overall rating for the University of lincoln from 2017 - 2022, having more reviews in 2019 will result in a more accurate mean rating. However,
+                        for years such as 2022 and 2021, there is a lot less, so the visualizations will be less accurate to the true student experience.
+                    </li>
+                    <br><br><br>
+                    <li>
+                        When creating visualizations comparing the different courses at Lincoln ("Mean overall rating for courses from the University of Lincoln"),
+                        it was found this visualization initially wasn't very effective as many courses have only 1 or few reviews compared to other courses
+                        that have many. This can impact the plot as you may have 1 course with 1 review of 5 stars, resulting in a mean
+                        of 5, however in actual fact the course might not be great and is being skewed by the view of 1 person.
+                        This limitation/issue was combatted by displaying the number of reviews for each course when you hover over the course on the chart.
+                    </li>
+                    <br>
+                    <li>
+                        A final limitation when performing analysis on our data was the high amount of non-quantitative data (text based). Although this form of
+                        data helps provided greater insights into the university experience, it provides little value in the visualizations. That is why we decided to create 2
+                        word clouds a thumbs up and thumbs down shaped one. The thumbs up word cloud is created using the reviews with a overall rating of 4 or higher, and the thumbs down
+                        word cloud is created using the reviews with a overall rating of less then 2.
+                    </li>
+                </p>
+            </div>
+        </div>
+    </section>
+
 {% endblock content %}
