@@ -212,8 +212,8 @@ cursor: pointer;
 
 /* make cell flex */
 .charts {
-display: flex;
-justify-content: center;
+    display: flex;
+    justify-content: center;
 }
 
 .charts2 {
@@ -224,6 +224,11 @@ justify-content: center;
 width: 100%;
 /* you can add ratios to your iframe in other way */
 aspect-ratio: 6/5;
+}
+
+.charts2 iframe {
+width: 100%;
+aspect-ratio: 6/2;
 }
 
 /* add styles to you images, make it responsive */
